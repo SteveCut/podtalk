@@ -1,5 +1,12 @@
 require File.expand_path('../boot', __FILE__)
 
+if defined?(Bundler)
+# If you precompile assets before deploying to production, use this line
+  #Bundler.require(*Rails.groups(:assets => %w(development test)))
+# If you want your assets lazily compiled in production, use this line
+  Bundler.require(:default, :assets, Rails.env)
+end
+
 # Pick the frameworks you want:
 require "active_record/railtie"
 require "action_controller/railtie"
@@ -25,6 +32,10 @@ module Prattler
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
-    #config.assets.initialize_on_precompile = false
+
+    # Enable the asset pipeline
+    config.assets.enabled = true
+
+    config.assets.initialize_on_precompile = false
   end
 end
