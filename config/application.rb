@@ -26,7 +26,7 @@ module Prattler
     # config.i18n.default_locale = :de
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
 
-    # Enable the asset pipeline
+    # Enable the asset pipeline - sc: this seemed to fix the problem with assets not being compiled on Heroku
     config.assets.enabled = true
 
     config.assets.initialize_on_precompile = false
