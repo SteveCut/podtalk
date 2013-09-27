@@ -24,4 +24,4 @@ def secure_token
   end
 end
 
-Prattler::Application.config.secret_key_base = secure_token
+Podtalk::Application.config.secret_key_base = secure_token
